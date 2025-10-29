@@ -1,0 +1,21 @@
+{
+  "name": "videotube",
+  "version": "1.0.0",
+  "description": "This project is a complex backend project that is built with nodejs, expressjs, mongodb, mongoose, jwt, bcrypt, and many more. This project is a complete backend project that has all the features that a backend project should have.",
+  "keywords": [
+    "backend",
+    "nodejs",
+    "expressjs",
+    "mongodb",
+    "mongoose",
+    "jwt",
+    "bcrypt"
+  ],
+  "license": "ISC",
+  "author": "Nikhil",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
