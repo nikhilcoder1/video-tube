@@ -1,1 +1,1 @@
-export const DB_NAME="mega-backend"
+export const DB_NAME="mega-backend";
