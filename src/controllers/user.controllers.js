@@ -7,7 +7,6 @@ import {
   deleteFromCloudinary,
 } from "../utils/cloudinary.js";
 import fs from "fs";
-
 import jwt from "jsonwebtoken";
 
 const genereateAccessAndRefreshToken = async (userId) => {
@@ -182,6 +181,36 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+const logoutUser = asyncHandler(async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      $set: { refreshToken: undefined},
+    },
+    {
+      new: true,
+    }
+  )    
+
+  const options = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+  };
+
+  return res
+  .status(200)
+  .clearCookie("accessToken", options)
+  .clearCookie("refreshToken", options)
+  .json(
+    new ApiResponse(
+      200,
+      null,
+      "User logged out successfully"
+    )
+  );
+});
+
+
 const refreshAccessToken = asyncHandler(async (req, res) => {
   const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken;
 
@@ -230,4 +259,5 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
   }
 });
 
-export { registerUser, loginUser , refreshAccessToken };
+
+export { registerUser, loginUser , refreshAccessToken , logoutUser };
