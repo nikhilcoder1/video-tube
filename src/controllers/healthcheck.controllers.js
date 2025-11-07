@@ -9,5 +9,3 @@ const heathcheck = asyncHandler(async (req, res) => {
 });
 
 export { heathcheck };
-
-
