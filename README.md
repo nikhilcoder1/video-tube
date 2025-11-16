@@ -106,8 +106,7 @@ src/
 
 ### 1️⃣ Clone the repo
 ```bash
-git clone https://github.com/your-username/video-tube-backend.git
-cd video-tube-backend
+git clone https://github.com/nikhilcoder1/video-tube.git
 ```
 
 ### 2️⃣ Install dependencies
