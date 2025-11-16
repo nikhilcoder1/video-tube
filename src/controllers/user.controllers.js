@@ -165,7 +165,7 @@ const loginUser = asyncHandler(async (req, res) => {
       secure: process.env.NODE_ENV === "production",
     };
 
-    res
+    return  res
       .status(200)
       .cookie("accessToken", accessToken, options)
       .cookie("refreshToken", refreshToken, options)
