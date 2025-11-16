@@ -1,0 +1,21 @@
+{
+    "id": "backend-env",
+    "name": "Backend Environment",
+    "values": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:3000/",
+            "enabled": true
+        },
+        {
+            "key": "token",
+            "value": "",
+            "enabled": true
+        },
+        {
+            "key": "refreshToken",
+            "value": "",
+            "enabled": true
+        }
+    ]
+}

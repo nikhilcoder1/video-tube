@@ -1,6 +1,6 @@
 {
     "info": {
-        "name": "Backend API Collection",
+        "name": "Backend API Collection (Updated)",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
@@ -10,7 +10,7 @@
                 "method": "POST",
                 "header": [],
                 "url": {
-                    "raw": "{{base_url}}/register",
+                    "raw": "{{base_url}}register",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -41,7 +41,7 @@
                 "method": "POST",
                 "header": [],
                 "url": {
-                    "raw": "{{base_url}}/login",
+                    "raw": "{{base_url}}login",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -58,7 +58,23 @@
                         }
                     }
                 }
-            }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "let res = pm.response.json();",
+                            "if(res.accessToken){",
+                            "    pm.environment.set(\"token\", res.accessToken);",
+                            "}",
+                            "if(res.refreshToken){",
+                            "    pm.environment.set(\"refreshToken\", res.refreshToken);",
+                            "}"
+                        ]
+                    }
+                }
+            ]
         },
         {
             "name": "Logout User",
@@ -72,7 +88,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/logout",
+                    "raw": "{{base_url}}logout",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -88,7 +104,7 @@
                 "method": "POST",
                 "header": [],
                 "url": {
-                    "raw": "{{base_url}}/refresh-token",
+                    "raw": "{{base_url}}refresh-token",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -96,7 +112,20 @@
                         "refresh-token"
                     ]
                 }
-            }
+            },
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "let res = pm.response.json();",
+                            "if(res.accessToken){",
+                            "    pm.environment.set(\"token\", res.accessToken);",
+                            "}"
+                        ]
+                    }
+                }
+            ]
         },
         {
             "name": "Change Password",
@@ -110,7 +139,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/change-password",
+                    "raw": "{{base_url}}change-password",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -132,7 +161,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/current-user",
+                    "raw": "{{base_url}}current-user",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -154,7 +183,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/update-account",
+                    "raw": "{{base_url}}update-account",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -185,7 +214,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/avatar",
+                    "raw": "{{base_url}}avatar",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -217,7 +246,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/cover-image",
+                    "raw": "{{base_url}}cover-image",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -249,7 +278,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/c/:username",
+                    "raw": "{{base_url}}c/:username",
                     "host": [
                         "{{base_url}}"
                     ],
@@ -272,7 +301,7 @@
                     }
                 ],
                 "url": {
-                    "raw": "{{base_url}}/history",
+                    "raw": "{{base_url}}history",
                     "host": [
                         "{{base_url}}"
                     ],
